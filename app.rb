@@ -1,0 +1,5 @@
+#Ian Wilkinson
+
+#Class requirements
+  #
+  #
