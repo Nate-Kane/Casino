@@ -22,8 +22,39 @@ class Menu
   end
 end
 
-class Game
+class Game 
+  def initialize (game_menu)
+    @menu = game_menu
+  end
+
+
+  def display_game
+    puts "Welcome to #{@menu[:name]}"
+    puts ""
+    @menu[:options].each_with_index do |name , index|
+      puts "#{index + 1}) #{name}"
+    end
+
+  end
+
+  def start_game 
+
+  end
+
+  #def place_bet
+  
+  # end
+
 end
+
+class Slots < Game
+
+end
+
+class High_Low < Game
+
+end
+
 
 class Wallet
   def initialize
@@ -41,8 +72,15 @@ main_menu = Menu.new(['View Games', 'View Wallet', 'Exit Casino'])
 games_menu = Menu.new(['Slots', 'High Low'])
 
 ####################### Instantiate Games
-slots = Game.new
-high_low = Game.new
+slots = Game.new({
+  name: "Slots",
+  options: ["Play", "Check Balance", "Quit to menu"]
+})
+
+high_low = Game.new({
+  name: "High/Low",
+  options: ["Play", "Check Balance", "Quit to menu"]
+})
 
 ####################### Instantiate Wallet
 
@@ -56,5 +94,13 @@ main_selection = main_menu.get_selection
 case main_selection
 when 1
   games_menu.display_menu
+  games_selection = games_menu.get_selection
+  case games_selection
+  when 1
+    slots.display_game
+  when 2
+    high_low.display_game
+  end
 end
+
 
