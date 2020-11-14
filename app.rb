@@ -21,6 +21,9 @@ require_relative "wallet.rb"
   options: ["Play", "Check Balance", "Quit to menu"]
 })
 
+
+@deck = Deck.new
+
 ####################### Instantiate Wallet and Pot
 @wallet = Wallet.new(100)
 @pot = Wallet.new(0)
