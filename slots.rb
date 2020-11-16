@@ -1,6 +1,6 @@
 class Slots < Game
   def start_game(total)
-    puts "If you win you earn double your bet!"
+    puts "Win big with matching numbers!"
     puts "Place bet:        (Wallet total = $#{total})"
   end
 

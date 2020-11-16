@@ -25,7 +25,7 @@ require_relative "r_p_s.rb"
 
 @rock_paper_scissors = Rock_paper_scissors.new ({
   name: "Rock, Paper, Scissors",
-  options: ["Play", "Check Balance", "Quite to menu"]
+  options: ["Play", "Check Balance", "Quit to menu"]
 })
 
 @deck = Deck.new
@@ -76,7 +76,7 @@ def slots_app
     @wallet.bet_money
     @pot.win_money(@wallet.bet_amount)
     if @slots.game_runs == true
-      @wallet.win_money(@pot.total)
+      @wallet.win_money(@pot.total*10)
       puts @wallet.total
       games_menu_app
     else
@@ -101,12 +101,14 @@ def rock_paper_scissors_app
     @pot.win_money(@wallet.bet_amount)
     @rock_paper_scissors.game_runs
     if @rock_paper_scissors.continue == true
-      @wallet.win_money(@pot.total)
+      @rock_paper_scissors.win_state
+      @wallet.win_money(@pot.total*2)
       puts @wallet.total
-      games_menu_app
+      rock_paper_scissors_app
     else
+      @rock_paper_scissors.lose_state
       puts "Your wallet now has $#{@wallet.total}"
-      games_menu_app
+      rock_paper_scissors_app
     end
   when 2
     @wallet.display_wallet

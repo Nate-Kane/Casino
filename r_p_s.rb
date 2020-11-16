@@ -1,8 +1,12 @@
 class Rock_paper_scissors < Game
   def start_game(total)
-    puts "Best of 3!"
+    puts "Best of 3 and double your money if you win!"
     puts "Place bet:        (Wallet total = $#{total})"
   end
+
+
+
+
 
   def game_runs
     puts "
@@ -97,40 +101,48 @@ class Rock_paper_scissors < Game
 
   def continue
     if @@win.sum >= 2 && @@win.sum > @@lose.sum
-      # continue to win/lose screen
-      puts "
-      You won! Great job. Here's your money.
-      "
-      puts "Your wins: #{@@win}"
-      puts "Your loses: #{@@lose}"
-      puts ""
-      # add money
       return true
-      play_again
     elsif @@lose.sum >= 2 && @@lose.sum > @@win.sum
-      puts "
-      Sorry, you lost.
-      "
-      puts "Your wins: #{@@win}"
-      puts "Your loses: #{@@lose}"
-      puts ""
-      # lose money
-      return false
-      play_again
+      return false 
     else
       game_runs
     end
   end
 
+  def win_state
+    puts "
+      You won! Great job. Here's your money.
+      "
+      puts "Your wins: #{@@win}"
+      puts "Your loses: #{@@lose}"
+      puts ""
+      @@win.clear
+      @@lose.clear
+  end
+
+  def lose_state
+    puts "
+      Sorry, you lost.
+      "
+      puts "Your wins: #{@@win}"
+      puts "Your loses: #{@@lose}"
+      puts ""
+      @@win.clear
+      @@lose.clear
+  end
+
+
+
+
   def play_again
-    puts "Would you like to play again?"
+    puts "Would you like to play again? y/n"
     choice = gets.strip.downcase
-    if choice == "yes"
+    if choice == "y"
       @@win.clear
       @@lose.clear
       puts "ok, here you go!"
-      rock_paper_scissors
-    elsif choice == "no"
+      game_runs
+    elsif choice == "n"
       exit #go back to game menu
     else
       puts "

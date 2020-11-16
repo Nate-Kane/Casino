@@ -26,6 +26,6 @@ class Wallet
   end
 
   def win_money (betamount)
-    @total += betamount * 2
+    @total += betamount
   end
 end
