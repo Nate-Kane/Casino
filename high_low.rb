@@ -16,6 +16,7 @@ class Card
     @color = color
   end
 end
+
 class Highlow < Game
   
 
@@ -71,3 +72,16 @@ elsif ( highlow_menu_selection == 2)
 else
   #quit to main menu
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
