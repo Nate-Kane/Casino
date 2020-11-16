@@ -1,6 +1,7 @@
 class Game 
   def initialize (game_menu)
     @menu = game_menu
+    @randomdeck = Deck.new
   end
 
   def display_game

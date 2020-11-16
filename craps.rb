@@ -49,26 +49,6 @@ class Craps < Game
   end
 end
 
-@wallet = Wallet.new(100)
-@craps = Craps.new({
-  name: "Craps",
-  options: ["Play", "Check Balance", "Quit to menu"]
-})
-@d = Dice.new
 
-def craps_app
-  @craps.display_game
-  case @craps.get_selection
-  when 1
-    @craps.start_game(@wallet.total)
-    @wallet.bet_money
-    bet1 = @craps.pass_bet
-    @craps.roll_result(@d.show_sum, bet1)
-  when 2
-    @wallet.display_wallet
-  when 3
-    main_menu_app
-  end
-end
 
-craps_app
+
