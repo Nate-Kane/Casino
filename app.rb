@@ -2,13 +2,13 @@
 require_relative "menu.rb"
 require_relative "game.rb"
 require_relative "deck.rb"
-require_relative "high_low.rb"
+# require_relative "high_low.rb"
 require_relative "slots.rb"
 require_relative "wallet.rb"
 require_relative "blackjack.rb"
 require_relative "r_p_s.rb" 
-require_relative "dice.rb"
-require_relative "craps.rb"
+# require_relative "dice.rb"
+# require_relative "craps.rb"
 
 ####################### Instatiate Menus
 @main_menu = Menu.new(['View Games', 'View Wallet', 'Exit Casino'])
@@ -20,10 +20,10 @@ require_relative "craps.rb"
   options: ["Play", "Check Balance", "Quit to menu"]
 })
 
-@high_low = High_low.new({
-  name: "High/Low",
-  options: ["Play", "Check Balance", "Quit to menu"]
-})
+# @high_low = High_low.new({
+#   name: "High/Low",
+#   options: ["Play", "Check Balance", "Quit to menu"]
+# })
 
 @rock_paper_scissors = Rock_paper_scissors.new ({
   name: "Rock, Paper, Scissors",
