@@ -31,11 +31,11 @@ class High_low < Game
     puts "1 is lower, 2 is higher"
     guess = gets.chomp.to_i
     second_card = @randomdeck.cards.sample.rank
-    puts "The second card #{second_card}"
+    puts "The second card is #{second_card}"
     if (guess == 0)  
-      puts "integer"
+      puts "Please enter an integer"
     else
-      (if (first_card < second_card)     
+      if (second_card > first_card)     
         if (guess == 2)
           puts "Card was higher, You win"
           return true
@@ -43,7 +43,7 @@ class High_low < Game
           puts "Card was lower, You lose"
           return false
         end
-      elsif (first_card > second_card)
+      elsif (second_card < first_card)
         if (guess == 2)
             puts "Card was higher, You lose"
             return true
@@ -53,7 +53,7 @@ class High_low < Game
         end
       else
         puts "It was the same card, try again"
-      end)
+      end
     end
   end
 end

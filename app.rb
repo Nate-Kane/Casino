@@ -113,7 +113,7 @@ def rock_paper_scissors_app
     @rock_paper_scissors.game_runs
     if @rock_paper_scissors.continue == true
       @rock_paper_scissors.win_state
-      @wallet.win_money(@wallet.bet_amount.total*2)
+      @wallet.win_money(@wallet.bet_amount*2)
       puts @wallet.total
       rock_paper_scissors_app
     else
@@ -129,21 +129,6 @@ def rock_paper_scissors_app
   end
 end
 
-def craps_app
-  @craps.display_game
-  case @craps.get_selection
-  when 1
-    @craps.start_game(@wallet.total)
-    @wallet.bet_money
-    bet1 = @craps.pass_bet
-    @craps.roll_result(@d.show_sum, bet1)
-  when 2
-    @wallet.display_wallet
-  when 3
-    main_menu_app
-  end
-end
-
 def high_low_app
   @high_low.display_game
   highlow_menu_selection = @high_low.get_selection
@@ -153,12 +138,12 @@ def high_low_app
     @wallet.bet_money
     @pot.win_money(@wallet.bet_amount)
     if @high_low.game_runs == true
-      @wallet.win_money(@wallet.bet_amount*10)
+      @wallet.win_money(@pot.total * 10)
       @wallet.display_wallet
-      games_menu_app
+      high_low_app
     else
       puts "Your wallet now has $#{@wallet.total}"
-      games_menu_app
+      high_low_app
     end
   when 2
     @wallet.display_wallet
