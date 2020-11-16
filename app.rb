@@ -6,7 +6,9 @@ require_relative "high_low.rb"
 require_relative "slots.rb"
 require_relative "wallet.rb"
 require_relative "blackjack.rb"
-require_relative "r_p_s.rb"
+require_relative "r_p_s.rb" 
+require_relative "dice.rb"
+require_relative "craps.rb"
 
 ####################### Instatiate Menus
 @main_menu = Menu.new(['View Games', 'View Wallet', 'Exit Casino'])
